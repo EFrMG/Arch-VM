@@ -1,0 +1,50 @@
+services:
+  proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile.proxy
+    networks:
+      - internal
+      - egress
+    restart: unless-stopped
+
+  agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    networks:
+      - internal
+    depends_on:
+      - proxy
+    environment:
+      - HTTP_PROXY=http://proxy:8888
+      - HTTPS_PROXY=http://proxy:8888
+      - NO_PROXY=localhost,127.0.0.1
+    volumes:
+      - ./projects:/workspace
+      - agent-home:/home/agent
+    working_dir: /workspace
+    read_only: true
+    tmpfs:
+      - /tmp:exec
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 256
+    mem_limit: 2g
+    cpus: "3"
+    stdin_open: true
+    tty: true
+
+networks:
+  internal:
+    internal: true
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24
+  egress:
+    driver: bridge
+
+volumes:
+  agent-home:

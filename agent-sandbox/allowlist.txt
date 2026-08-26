@@ -1,0 +1,79 @@
+# Agent harnesses --.
+
+# Claude Code: api.anthropic.com, mcp-proxy.anthropic.com, claude.ai and downloads.claude.ai, platform.claude.com (OAuth token exchange/refresh), code.claude.com (docs lookups)
+^(.*\.)?anthropic\.com$
+^(.*\.)?claude\.ai$
+^(.*\.)?claude\.com$
+
+# Plugin metadata and install counts shown in /plugin (doubles as the Go module mirror bucket)
+^storage\.googleapis\.com$
+
+# opencode: auth and the web UI proxied from app.opencode.ai
+^(.*\.)?opencode\.ai$
+
+# pi: install.sh and docs
+^(.*\.)?pi\.dev$
+
+# Shared open model/provider catalogue; opencode builds its model list from it, and pi packages fetch https://models.dev/api.json at startup
+^(.*\.)?models\.dev$
+
+# Model APIs --.
+
+^api\.openai\.com$
+^auth\.openai\.com$
+^(.*\.)?chatgpt\.com$
+^generativelanguage\.googleapis\.com$
+^aiplatform\.googleapis\.com$
+^cloudcode-pa\.googleapis\.com$
+^accounts\.google\.com$
+^oauth2\.googleapis\.com$
+^openrouter\.ai$
+^api\.deepseek\.com$
+^api\.mistral\.ai$
+^api\.groq\.com$
+^api\.x\.ai$
+^(.*\.)?githubcopilot\.com$
+
+# Source control --.
+
+# githubusercontent covers raw., codeload. and release-assets. (release binaries moved to release-assets.githubusercontent.com during 2025)
+^(.*\.)?github\.com$
+^(.*\.)?githubusercontent\.com$
+
+# Package registries --.
+
+# Node
+^(.*\.)?npmjs\.org$
+^(.*\.)?npmjs\.com$
+^(.*\.)?nodejs\.org$
+^(.*\.)?yarnpkg\.com$
+^get\.pnpm\.io$
+^bun\.sh$
+
+# Python
+^pypi\.org$
+^(.*\.)?pythonhosted\.org$
+^bootstrap\.pypa\.io$
+^(.*\.)?astral\.sh$
+
+# Go: the default GOPROXY/GOSUMDB pair, plus go.dev/dl -> dl.google.com tarballs
+^proxy\.golang\.org$
+^sum\.golang\.org$
+^index\.golang\.org$
+^go\.dev$
+^dl\.google\.com$
+^gopkg\.in$
+
+# Rust
+^(.*\.)?crates\.io$
+^static\.rust-lang\.org$
+^sh\.rustup\.rs$
+# Others, as needed
+^(.*\.)?rubygems\.org$
+^repo1\.maven\.org$
+^(.*\.)?gradle\.org$
+^(.*\.)?nuget\.org$
+
+# Toolchains (mise, step 5.9) --.
+^mise\.run$
+^(.*\.)?jdx\.dev$
