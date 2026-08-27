@@ -77,3 +77,6 @@
 # Toolchains (mise, step 5.9) --.
 ^mise\.run$
 ^(.*\.)?jdx\.dev$
+
+# MCPs
+^(.*\.)?context7\.com$
