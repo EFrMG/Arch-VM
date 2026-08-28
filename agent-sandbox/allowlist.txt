@@ -78,5 +78,6 @@
 ^mise\.run$
 ^(.*\.)?jdx\.dev$
 
-# MCPs
-^(.*\.)?context7\.com$
+# MCP servers --.
+^mcp\.context7\.com$
+^mcp\.grep\.app$
