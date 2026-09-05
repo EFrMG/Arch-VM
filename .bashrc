@@ -27,8 +27,15 @@ export MANPAGER='nvim +Man!'
 # gio trash support
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
 
-# Local bin
-[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+# Sourcing from a single directory
+if [[ -d "${HOME}/.bashrc.d" ]]; then
+  for default in "${HOME}/.bashrc.d/"*.bashrc; do
+    [[ -f "${default}" ]] && source "${default}"
+  done
+fi
 
 # Fzf default style: Partial Catppuccin
 export FZF_DEFAULT_OPTS='--style full --input-label " Search " --preview "fzf-preview.sh {}" --pointer="◆" --color="fg:#cdd6f4,fg+:#d0d9f5,list-fg:#cdd6f4,selected-fg:#d0d9f5 \
@@ -45,28 +52,10 @@ scrollbar:#b895e3,preview-scrollbar:#b895e3,separator:#585b70,gap-line:#585b70 \
 alt-bg:-1,query:-1,nth:italic,nomatch:-1"'
 
 # Fzf command history style (without preview)
-export FZF_DEFAULT_OPTS='--style full --input-label " Search " --no-preview --wrap --pointer="◆" --color="fg:#cdd6f4,fg+:#d0d9f5,list-fg:#cdd6f4,selected-fg:#d0d9f5 \
-bg:-1,bg+:#2A2B3C,list-bg:-1,selected-bg:#222444,preview-bg:-1 \
-input-bg:-1,header-bg:-1,footer-bg:-1,gutter:#1b1b29 \
-hl:#89B4FA,hl+:#f38ba8,selected-hl:#f38ba8 \
-info:#A6E3A1,prompt:#94E2D5,pointer:#CBA6F7,marker:#a76af2,spinner:#CBA6F7 \
-header:#89b4fa,footer:#89b4fa,ghost:#6c7086,disabled:#6c7086 \
-list-border:#A6E3A1,preview-border:#A6E3A1 \
-input-border:#A6E3A1,header-border:#A6E3A1,footer-border:#A6E3A1 \
-label:#94E2D5,list-label:#94E2D5,preview-label:#94E2D5 \
-input-label:#94E2D5,header-label:#94E2D5,footer-label:#94E2D5 \
-scrollbar:#b895e3,preview-scrollbar:#b895e3,separator:#585b70,gap-line:#585b70 \
-alt-bg:-1,query:-1,nth:italic,nomatch:-1"'
-
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-
-# Sourcing from a single directory
-if [[ -d "${HOME}/.bashrc.d" ]]; then
-  for default in "${HOME}/.bashrc.d/"*.bashrc; do
-    [[ -f "${default}" ]] && source "${default}"
-  done
-fi
+export FZF_CTRL_R_OPTS='--no-preview --wrap'
 
 eval "$(starship init bash)"
 eval "$(mise activate bash)"
+
+# Local bin
+[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
