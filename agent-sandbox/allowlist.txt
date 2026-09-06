@@ -76,7 +76,13 @@
 
 # Toolchains (mise, step 5.9) --.
 ^mise\.run$
+# Sigstore: mise's build-provenance verification for some language installs, like Ruby
+^(.*\.)?sigstore\.dev$
 ^(.*\.)?jdx\.dev$
+
+# Browser automation: Playwright, Chromium won't start without libglib, so use something like Sparticuz/chromium --.
+# Playwright's own CDN for browser binaries (its actual Chromium/Firefox/WebKit archives)
+^(.*\.)?playwright\.dev$
 
 # MCP servers --.
 ^mcp\.context7\.com$
