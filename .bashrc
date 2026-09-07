@@ -56,6 +56,7 @@ export FZF_CTRL_R_OPTS='--no-preview --wrap'
 
 eval "$(starship init bash)"
 eval "$(mise activate bash)"
+eval "$(zoxide init bash)"
 
 # Local bin
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
