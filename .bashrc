@@ -60,3 +60,10 @@ eval "$(zoxide init bash)"
 
 # Local bin
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+
+# Manage history better across terminals and with higher limits
+shopt -s histappend
+PROMPT_COMMAND="history -a; history -c; history -r${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+
+export HISTSIZE=10000
+export HISTFILESIZE=20000
