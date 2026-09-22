@@ -29,6 +29,8 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias duck='cd ~/agent-sandbox && docker compose run --rm agent bash'
+alias duckr='cd ~/agent-sandbox && docker compose build --pull --no-cache'
 
 # Sourcing from a single directory
 if [[ -d "${HOME}/.bashrc.d" ]]; then

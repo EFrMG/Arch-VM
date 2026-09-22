@@ -73,6 +73,7 @@
 ^repo1\.maven\.org$
 ^(.*\.)?gradle\.org$
 ^(.*\.)?nuget\.org$
+^ftp\.postgresql\.org$
 
 # Toolchains (mise, step 5.9) --.
 ^mise\.run$
