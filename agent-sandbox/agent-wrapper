@@ -2,7 +2,7 @@
 
 # Updates the tool to the latest version, then runs it
 tool=$(basename "$0")
-mise use -g "$tool" >/dev/null 2>&1 \
-  || echo "$tool: update check failed (proxy / offline ?), running the installed version" >&2
+mise use -g "$tool" >/dev/null 2>&1 ||
+  echo "$tool: update check failed (proxy / offline ?), running the installed version" >&2
 
 exec mise x "$tool" -- "$tool" "$@"
