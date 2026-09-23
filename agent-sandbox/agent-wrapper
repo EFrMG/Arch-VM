@@ -2,7 +2,10 @@
 
 # Updates the tool to the latest version, then runs it
 tool=$(basename "$0")
-mise use -g "$tool" >/dev/null 2>&1 ||
+
+# `cd /` so the update doesn't discover (and prompt to trust) a project's mise.toml in /workspace,
+# `--yes` for any other confirmation, `</dev/null` so a prompt can never block invisibly
+(cd / && mise use -g --yes "$tool" >/dev/null </dev/null) ||
   echo "$tool: update check failed (proxy / offline ?), running the installed version" >&2
 
 exec mise x "$tool" -- "$tool" "$@"

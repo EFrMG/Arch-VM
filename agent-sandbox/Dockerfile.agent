@@ -22,6 +22,10 @@ WORKDIR /workspace
 RUN git config --global user.name "sandbox-agent" \
   && git config --global user.email "sandbox-agent@localhost"
 
+# Create every directory a bind mount in compose.yaml targets, as agent
+# Docker creates a missing bind-mount parent as root:root, which would leave ~/.config unwritable and break `mise use -g`
+RUN mkdir -p /home/agent/.config/opencode
+
 # Harness launchers, like Omarchy's ~/.local/bin wrappers
 # mkdir as agent first, so ~/.local stays agent-owned (mise writes to ~/.local/share)
 RUN mkdir -p /home/agent/.local/bin
