@@ -40,6 +40,10 @@
 ^(.*\.)?github\.com$
 ^(.*\.)?githubusercontent\.com$
 
+# GitHub Actions log/artifact redirects use variable Azure Blob storage accounts.
+# This matches Azure Blob account hosts generally; the hostname does not identify GitHub ownership.
+^[a-z0-9]+\.blob\.core\.windows\.net$
+
 # Package registries --.
 
 # Node
