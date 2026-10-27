@@ -36,6 +36,9 @@
 
 # Source control --.
 
+# Hugging Face (model hub, inference endpoints, router, LFS CDN)
+^(.*\.)?huggingface\.co$
+
 # githubusercontent covers raw., codeload. and release-assets. (release binaries moved to release-assets.githubusercontent.com during 2025)
 ^(.*\.)?github\.com$
 ^(.*\.)?githubusercontent\.com$
