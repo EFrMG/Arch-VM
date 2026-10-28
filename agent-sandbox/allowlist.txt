@@ -33,6 +33,7 @@
 ^api\.groq\.com$
 ^api\.x\.ai$
 ^(.*\.)?githubcopilot\.com$
+^api\.fireworks\.ai$
 
 # Source control --.
 
