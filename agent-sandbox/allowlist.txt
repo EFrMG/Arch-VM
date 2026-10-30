@@ -34,6 +34,7 @@
 ^api\.x\.ai$
 ^(.*\.)?githubcopilot\.com$
 ^api\.fireworks\.ai$
+^ollama\.com$
 
 # Source control --.
 
