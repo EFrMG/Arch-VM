@@ -41,7 +41,8 @@
 # Hugging Face (model hub, inference endpoints, router, LFS CDN)
 ^(.*\.)?huggingface\.co$
 
-# githubusercontent covers raw., codeload. and release-assets. (release binaries moved to release-assets.githubusercontent.com during 2025)
+# github.com covers codeload. (the tarball host git and go get hit); githubusercontent covers raw., objects., media. and release-assets.
+# Release binaries moved to release-assets.githubusercontent.com during 2025.
 ^(.*\.)?github\.com$
 ^(.*\.)?githubusercontent\.com$
 
@@ -97,3 +98,36 @@
 # MCP servers --.
 ^mcp\.context7\.com$
 ^mcp\.grep\.app$
+
+# Common extras --.
+
+# Source hosting beyond GitHub
+^(.*\.)?gitlab\.com$
+^(.*\.)?bitbucket\.org$
+^codeberg\.org$
+
+# GitHub Pages / Helm chart repos, and Git LFS object storage
+# (github.com and githubusercontent.com do not cover these two)
+^(.*\.)?github\.io$
+^github-cloud\.s3\.amazonaws\.com$
+
+# Documentation lookups
+^docs\.rs$
+^(.*\.)?readthedocs\.io$
+^(.*\.)?rust-lang\.org$
+^(.*\.)?python\.org$
+^(.*\.)?go\.dev$
+
+# Frontend assets
+^cdn\.jsdelivr\.net$
+^unpkg\.com$
+^esm\.sh$
+^fonts\.googleapis\.com$
+^fonts\.gstatic\.com$
+
+# Cloudflare platform (wrangler, Workers/Pages/R2)
+^api\.cloudflare\.com$
+^dash\.cloudflare\.com$
+^developers\.cloudflare\.com$
+
+# Container registries are deliberately absent: the agent has no Docker socket, so it cannot pull images.
